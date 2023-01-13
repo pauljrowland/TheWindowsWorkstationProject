@@ -1,0 +1,94 @@
+English translation for serv08convert 1.1 by sawo
+Windows Server 2008 Workstation Converter 1.1 by sawo
+
+General
+Visual Tweaks
+Network
+Games
+Other
+Delay Activation
+About
+
+Apply
+Verify
+Owner information:
+Set Owner:
+Set Organization:
+Various tweaks
+Enable Windows Audio
+Optimize CPU performance for programs
+Disable IE Enhanced Security Configuration
+Install .NET Framework 3.0
+Enable SuperFetch
+Welcome to Windows Server 2008 Workstation Converter version 1.1 by sawo
+Install Desktop Experience (Media Player, Themes, etc.)
+Enable themes service
+Install Vista SideBar
+Patch UxTheme to allow unsigned themes
+Install windows vista aero cursors
+Disable ctrl+alt+del at Windows startup
+Disable Shutdown Event Tracker
+Disable verbose messages at startup/shutdown
+Change Computer Name
+Enable Wireless Networking
+Install gameux.dll for better game compatibility
+Install game controllers control panel item
+Enable Offline Files
+Enable Windows Search Service
+Enable Auto Logon
+Enable Speech Recognition
+Rearm
+Check the remaining trial time
+(it will take few seconds to load)
+
+Version
+created by
+contact me at
+
+This setting is turned on by default on XP and Vista(Restart required)
+This one doesnt need explanation :-)
+Almost 100% useless...
+This is needed if you want to use the vista themes, wmp, etc. Reboot required!
+Even after the desktop experience is installed, themes are disabled by default
+This is useful if you are using LAN network
+Required for many applications
+Optimizes memory performance, enabled by default in vista
+Very annoying and useless
+Useful when using network files on notebooks
+Enables searching in outlook and documents
+Display 'Welcome' instead of the standart configuring desktop etc.
+After the patch is applied, the system can use any themes, even unsigned from MicroSoft
+The ones that are used in win vista when you enable aero
+This file is needed for games like Bioshock, GTA:SA, etc.
+joystick/steering wheel or other game controllers
+The menu bar that stays on right of the desktop in vista
+Partial fix for the speech recognition
+
+Done!
+Notification
+Warning! It will be illegal to redistribute the speech files with my application so you have to do it yourself.
+Please copy the following directories from any vista installation to the same folders on your computer:
+and do not overwrite the existing files!
+This program will only create the needed registry entries for the Speech Recognition
+Do you want to continue creating the registry entries?
+If the installation window doesnt show up, please reboot before installing this feature
+Warning
+You must reboot your computer for the changes to take effect!
+If the installation window doesnt show up, please reboot before installing this feature.
+Do you also want to enable the themes service
+It is required if you want to use the vista themes.
+To be or not to be
+Please reboot to complete the installation!
+The patch is already applied!
+Press OK To backup and patch the files
+Error occured! The original files are restored!
+Error!
+Restart the computer to complete the patch!
+Patch aborted
+Done! You can configure your mouse pointers now!
+Done! Now the sidebar will load on startup and you can use
+any gadgets directly from the microsoft website!
+
+Support/Information page
+Files page
+Compiled on

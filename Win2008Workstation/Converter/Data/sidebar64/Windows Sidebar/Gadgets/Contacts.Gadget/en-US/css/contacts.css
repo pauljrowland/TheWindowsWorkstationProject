@@ -1,0 +1,20 @@
+﻿
+body,
+input   {font:13px segoe ui,tahoma}
+body    {background:magenta no-repeat;width:140;height:168;border:none;margin:0;cursor:default;}
+
+q       {margin:0 2;padding:4 2;width:115;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:hand}
+q.hot   {margin:0 0;padding:4 4;color:#e74009;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/box.png',sizingMethod=scale)}
+q.sel   {font:bold}
+q cite  {font-weight:bold;font-style:normal;color:blue}
+
+#hList  {width:115;height:116;overflow:hidden}
+#hNoHits{position:absolute;width:115;top:54;color:gray;text-align:center}
+#sb     {position:absolute;left:105;top:1;width:11;height:114;background:url(images/sbbg.gif);
+         filter:progid:DXImageTransform.Microsoft.Alpha(opacity=50)}
+#sb#sbth{position:absolute;background:#eeeeff}
+#hd     {position:absolute;left:150;top:10;width:110;height:137;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+         filter:progid:DXImageTransform.Microsoft.Fade(duration=0.25,overlap=1);background:no-repeat -150 -10 url(images/bg-desk.png)}
+
+label   {display:block;margin-top:6;font:bold;color:gray;}
+
