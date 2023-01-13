@@ -1,0 +1,165 @@
+﻿<!--
+////////////////////////////////////////////////////////////////////////////////
+//
+//  THIS CODE IS NOT APPROVED FOR USE IN/ON ANY OTHER UI ELEMENT OR PRODUCT COMPONENT.
+//  Copyright (c) 2006 Microsoft Corporation.  All rights reserved.
+//
+////////////////////////////////////////////////////////////////////////////////
+-->
+<html>
+<head>
+
+	<meta http-equiv="MSThemeCompatible" CONTENT="yes">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<title>Contacts</title>
+
+    <style>
+        body,
+        input                       {font:12px segoe ui,tahoma}
+        body                        {background:magenta no-repeat;width:130;height:168;border:none;margin:0;cursor:default;}
+        table                       {border-collapse:collapse}  
+        td.phoneStyle               {padding-right:5px;}  
+        label                       {display:block;margin-top:6;font:bold;color:gray;}           
+        
+        q                           {z-Index:1;font-size:12px;margin:0 0;padding:2 2;width:102;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:default}
+        q.hot                       {margin:0 0;padding:2 2;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/box.png',sizingMethod=scale)}
+        q.sel                       {font:bold}
+        q cite                      {font-style:normal;background:#99B0DD;}
+
+       
+        .hNoHits_docked_ltr         {z-Index:1;position:absolute;width:115;top:54;text-align:center;font-size:12px;}
+        .hNoHits_docked_rtl         {z-Index:1;position:absolute;width:115;top:54;left:-5;text-align:center;font-size:12px;}
+        .hNoHits_undocked_ltr       {z-Index:1;position:absolute;width:115;top:54;text-align:center;font-size:12px;}
+        .hNoHits_undocked_rtl       {z-Index:1;position:absolute;width:115;top:54;left:-5;text-align:center;font-size:12px;}
+        
+
+        .searchText_docked_ltr      {font-size:12px;font-style:italic;color:gray;position:absolute;top:4;left:4;}
+        .searchText_docked_rtl      {font-size:12px;font-style:italic;color:gray;position:absolute;top:4;left:57;}
+        .searchText_undocked_ltr    {font-size:12px;font-style:italic;color:gray;position:absolute;top:4;left:4;}
+        .searchText_undocked_rtl    {font-size:12px;font-style:italic;color:gray;position:absolute;top:4;left:55;}
+        
+        .divList_undocked_ltr       {position:absolute;left:25;top:25;}
+        .divList_undocked_rtl       {position:absolute;left:165;top:25;}
+        
+        .divList_docked_ltr         {position:absolute;left:10;top:12;}
+        .divList_docked_rtl         {position:absolute;left:9;top:12;}
+        .hrLineDetail_docked_ltr    {width:110px;position:absolute;top:45px;left:20px;}
+        .hrLineDetail_docked_rtl    {width:110px;position:absolute;top:45px;left:3px;}
+       
+        #sb #sbth                   {position:absolute;background:#eeeeff}       
+        #firstName_docked           {position:relative;top:1;font-weight:bold;font-size:12px;width:70;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cwhite-space:nowrap}
+        #lastName_docked            {position:relative;top:-2;font-weight:bold;font-size:11px;width:70;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cwhite-space:nowrap}
+        #firstName                  {position:relative;top:1;font-weight:bold;font-size:12px;width:70;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cwhite-space:nowrap}
+        #lastName                   {position:relative;top:-2;font-weight:bold;font-size:11px;width:70;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cwhite-space:nowrap}
+        
+        .phoneNumberTable_docked_ltr    {position:absolute;top:90px}
+        .phoneNumberTable_docked_rtl    {position:absolute;left:50;top:190px}
+        
+        .phoneNumberTable_undocked_ltr  {position:absolute;top:90px}
+        .phoneNumberTable_undocked_rtl  {position:absolute;left:2;top:90px}
+                                     
+        .hrLine_undocked_ltr        {width:100px;position:relative;top:55px;left:60px;}
+        .hrLine_undocked_rtl        {background:green;width:100px;position:relative;top:55px;left:-70;}
+        
+        .filterDiv                  {height:26;position:absolute;top:117;left:1;width:100;}
+        .hList_undocked_ltr         {width:108;height:116;overflow:hidden}
+        .hList_undocked_rtl         {width:108;height:116;overflow:hidden}
+        
+        .hList_docked_ltr           {width:108;height:116;overflow:hidden}
+        .hList_docked_rtl           {width:108;height:116;overflow:hidden}
+        
+        .detailTab                  {position:absolute;left:2;top:54;width:15px;height:31px;}
+        .searchTab                  {position:absolute;left:3;top:10;width:15px;height:42px;}    
+        .detailTab_docked_ltr       {position:absolute;left:2;top:54;width:15px;height:31px;}
+        .searchTab_docked_ltr       {position:absolute;left:3;top:10;width:15px;height:42px;}    
+        .detailTab_docked_rtl       {position:absolute;left:118;top:54;width:15px;height:31px;}
+        .searchTab_docked_rtl       {position:absolute;left:120;top:10;width:15px;height:42px;}    
+
+
+        .sb_ltr                     {position:absolute;left:104;top:1;width:11;height:114;background:url(images/sbbg.png);
+                                        filter:progid:DXImageTransform.Microsoft.Alpha(opacity=50)}
+        .sb_rtl                     {position:absolute;left:-4;top:1;width:11;height:114;background:url(images/sbbg.png);
+                                        filter:progid:DXImageTransform.Microsoft.Alpha(opacity=50)}
+        .divDetail_docked_ltr       {position:absolute;left:15;top:10;width:110;height:137;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}           
+        .divDetail_docked_rtl       {position:absolute;left:3;top:10;width:110;height:137;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}           
+        .hd_undocked_ltr            {position:absolute;left:165;top:25;width:110;height:137;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+                                        filter:progid:DXImageTransform.Microsoft.Iris(Motion='out',Duration=0.25,irisStyle='CIRCLE');}
+
+        .hd_undocked_rtl            {position:absolute;left:25;top:25;width:110;height:137;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+                                        filter:progid:DXImageTransform.Microsoft.Iris(Motion='out',Duration=0.25,irisStyle='CIRCLE');}
+
+        .hd_docked                  {position:absolute;left:20;top:10;width:110;height:137;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}           
+        .email                      {position:relative;top:22px;font-size:11px;width:105;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cwhite-space:nowrap}
+        .phone                      {position:relative;font-size:11px;width:95;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cwhite-space:nowrap}
+        
+    </style>
+</head>
+
+<body onLoad="myOnLoad();" scroll="no">
+
+    <g:background id="contactsBg" style="dir:ltr;position:absolute;z-index:-1" />
+    
+    <div id="divList" class="divList_undocked_ltr"  unselectable=on>
+        <div  id="hList" class="hList_undocked_ltr" unselectable=on></div>
+        <div id="hNoHits" class="hNoHits_undocked_ltr"><span id="L_NOCONTACTS_text" style="z-index:5;padding-left:5px;padding-right:5px">No items match your search.</span><br /><span id="L_RESETFILTER_text" style="font:75%;color:blue;cursor:default" onclick="tFilter.value='';reFilter()"></span></div>
+        <div id="sb" class="sb_ltr"  style="z-index:205"><img id="sbth" src="images/sbth.png" style="z-index:200;"></div>
+        <div id="filterDiv" class="filterDiv">
+           <table border=0 cellpadding=0 cellspacing=0 style="width:107px;height:25px;background:url(images/searchbox.png);">
+                <tr>
+                    <td width="2"></td>
+                    <td><span class="searchText_undocked_ltr" onclick="this.style.display='none';tFilter.focus();" id="searchText"></span><input style="border:none;height:20px;width:78px;" onkeydown="searchText.style.display='none';" onclick="searchText.style.display='none';" onblur="cksearchText(this);" title="" id="tFilter" /></td>
+                    <td><img tabindex=1 UNSELECTABLE=on onkeypress="evalDisplayImage(this,'up');" id="searchImage" mode="" src="images\ltr-stocks_search_rest.png" onmouseover="displayImage(this,'over');" onmouseup="displayImage(this,'up');" onmouseout="displayImage(this,'out')"  onmousedown="displayImage(this,'down');"/></td>
+                    <td width="2"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+    <div id="divDetail" class="divDetail_docked_ltr">
+        <table table width="110" style="border-collapse;">
+            <tr>
+                <td onkeypress="evalDisplayProperties(L_VIEWCONTACTDETAILSDOCKED);"><a href="javascript:void(0)" filePath="" onclick="displayProperties(this);" style="cursor:default;" title="" id="L_VIEWCONTACTDETAILSDOCKED"><img id="divDetailImage" style="border:0" src="images\tile.png" /></a></td>
+                <td style="width:70" valign=middle>
+                     <span  id="firstName_docked" title=""></span>
+                     <span id="lastName_docked" title=""></span>
+                </td>
+            </tr>
+        </table> 
+        <div id="L_EMAILTITLEDOCKED_text" style="position:absolute;top:40px;font-size:11px;font-weight:bold;color:#83899a;">Email:</div>
+        <div class="email" onkeypress="evalEmail(this);"><a id="email_docked" href=""></a></div>
+        <div id="L_PHONETITLEDOCKED_text" style="position:absolute;top:75px;font-size:11px;font-weight:bold;color:#83899a;">Phone:</div>
+            <table id="phoneNumberTable_docked" style="position:absolute;top:90px;">     
+            </table>   
+        </div> 
+        <hr id="hrLineDetail" />
+    </div>
+    
+    <div id="searchTab" tabindex=1 onkeypress="evalShowDockedList();" class="searchTab_docked_ltr" onclick="showDockedList();"></div>
+    <div id="detailTab" tabindex=1 onkeypress="evalShowDetail()" class="detailTab_docked_ltr" onclick="showDetail();"></div>
+            
+    <div id=hd class="hd">
+        <table>
+            <tr style="height:40px;">
+                <td style="width:35px;" onkeypress="evalDisplayProperties(L_VIEWCONTACTDETAILS);" ><a href="javascript:void(0)" filePath="" onclick="displayProperties(this);" style="cursor:default;"  title="" id="L_VIEWCONTACTDETAILS"><img id="hdImage" style="border:0" src="images\tile.png" /></a></td>
+                <td style="width:70" valign=middle>
+                     <span  id="firstName" title=""></span>
+                     <span id="lastName" title=""></span>
+                </td>
+            </tr>
+        </table> 
+        <div id="L_EMAILTITLE_text" style="position:absolute;top:40px;font-size:11px;font-weight:bold;color:#83899a;">Email:</div>
+        <div class="email" onkeypress="evalEmail(this);"><a id="email"  href=""></a></div>
+        <div id="L_PHONETITLE_text" style="position:absolute;top:75px;font-size:11px;font-weight:bold;color:#83899a;">Phone:</div>
+            <table id="phoneNumberTable" class="phoneNumberTable_undocked_ltr">       
+            </table>   
+        </div>  
+        <hr id="hrLine" class="hrLine_undocked_ltr" />
+    </div>
+    <div id="L_LOCEARCHWORD_text" style="display:none">Search</div>
+   
+</body>
+     <script src="js/contacts.js" type="text/javascript" language="javascript"></script>
+</html>
+
+
