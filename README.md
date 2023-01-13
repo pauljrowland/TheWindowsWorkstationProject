@@ -1,6 +1,6 @@
 # TheWindowsWorkstationProject
 
-Welcome to the Windows Workstation Project GitHub!.
+Welcome to the Windows Workstation Project GitHub!
 
 Established in 2008, this is a community driven effort to convert Microsoft Windows Server operating systems into recognisable day-to-day Windows Desktops.
 
